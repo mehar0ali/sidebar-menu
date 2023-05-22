@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --hue-color: 250;
+
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 1%, 61%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 82%);
+
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    width: 70px;
+    border-radius: 10px;
+    border-left: 5px solid var(--first-color);
+    background: var(--first-color);
+    box-sizing: initial;
+    transition: width 0.3s;
+    overflow-x: hidden;
+}
+
+.container.active{
+    width: 300px;
+}
+
+.container ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 40px 0 0 5px;
+    width: 100%;
+}
+
+.container ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* transition: .3s ease-in; */
+}
+
+.container ul li b:nth-child(1){
+    position: absolute;
+    top: -20px;
+    background: #fff;
+    width: 100%;
+    height: 20px;
+    display: none;
+}
+
+.container ul li b:nth-child(1)::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--first-color);
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 20px;
+}
+
+.container ul li b:nth-child(2){
+    position: absolute;
+    bottom: -20px;
+    background: #fff;
+    width: 100%;
+    height: 20px;
+    display: none;
+}
+
+.container ul li b:nth-child(2)::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--first-color);
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 20px;
+}
+
+.container ul li.active b:nth-child(1),
+.container ul li.active b:nth-child(2){
+    display: block;
+}
+
+.container ul li.active{
+    background: #fff;
+}
+
+.container ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.container ul li.active a{
+    color: #333;
+}
+
+.container ul li a .icon{
+    padding-left: 15px;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    align-items: center;
+}
+
+.container ul li a .icon ion-icon{
+    font-size: 20px;
+}
+
+.container ul li a .text{
+    position: relative;
+    padding-left: 30px;
+    line-height: 60px;
+    width: 300px;
+}
+
+.toggle{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--first-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle.active{
+    background: #ff4d89;
+}
+
+.toggle ion-icon{
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    display: none;
+}
+
+.toggle ion-icon.open,
+.toggle.active ion-icon.close
+{
+    display: block;
+}
+
+.toggle.active ion-icon.open,
+.toggle ion-icon.close
+{
+    display: none;
+}
